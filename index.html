@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0f12">
+  <title>Stratum Zero — Forensic Archive of Ancient Near Eastern Texts</title>
+  <meta name="description" content="Stratum Zero is a peer-reviewed forensic archive of ancient Near Eastern texts. Manuscripts, archaeology, genetics, and translation history, filed by verse.">
+  <meta name="author" content="Stratum Zero">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://stratum-zero.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Stratum Zero — Forensic Archive">
+  <meta property="og:description" content="A clinical, mobile-first vault of textual transmission. Witness, King James tradition, modern-translation track, and archaeological receipt.">
+  <meta property="og:url" content="https://stratum-zero.org/">
+  <meta property="og:site_name" content="Stratum Zero">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%230d0f12' width='32' height='32'/%3E%3Crect x='5' y='5' width='22' height='22' fill='none' stroke='%23c5a059' stroke-width='2'/%3E%3Cpath stroke='%23ff453a' stroke-width='2' d='M5 16h22'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Stratum Zero",
+    "url": "https://stratum-zero.org/",
+    "description": "Peer-reviewed forensic archive of ancient Near Eastern textual transmission.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Stratum Zero",
+      "url": "https://stratum-zero.org/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Nuclear tier dossiers",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "SZ-0001 Deuteronomy 32:8"},
+      {"@type": "ListItem", "position": 2, "name": "SZ-0002 Isaiah 7:14"},
+      {"@type": "ListItem", "position": 3, "name": "SZ-0003 Mark 16:8–20"},
+      {"@type": "ListItem", "position": 4, "name": "SZ-0004 1 John 5:7–8"},
+      {"@type": "ListItem", "position": 5, "name": "SZ-0005 John 7:53–8:11"},
+      {"@type": "ListItem", "position": 6, "name": "SZ-0006 Genesis 1:6–8"},
+      {"@type": "ListItem", "position": 7, "name": "SZ-0007 Luke 2:1–2"},
+      {"@type": "ListItem", "position": 8, "name": "SZ-0008 Joshua 6"}
+    ]
+  }
+  </script>
+  <!--
+    PAYLOAD EXPANSION
+    The visible index is rendered by app.js from an in-memory catalog of 350 files.
+    To pass that milestone: add bound dossiers in app.js (CURATED) or replace
+    buildArchive() with a fetch of /data/archive.json using the same file shape.
+    For deeper SEO later, emit one static URL per bound file and keep this page
+    as the index. Do not paste copyrighted NIV or ESV full verses into those pages.
+  -->
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#feed">Skip to index</a>
+
+  <header class="masthead">
+    <div class="wrap">
+      <p class="kicker">Peer-reviewed forensic archive</p>
+      <h1>STRATUM-ZERO.ORG</h1>
+      <p class="plate">Ancient Near Eastern texts · manuscripts, strata, samples</p>
+    </div>
+  </header>
+
+  <section class="manifesto" aria-labelledby="manifesto-title">
+    <div class="wrap">
+      <p class="kicker">Institutional mandate</p>
+      <h2 id="manifesto-title">The file is the argument.</h2>
+      <p>Stratum Zero is a clinical vault for the transmission of ancient Near Eastern texts. The unit of work is the file: a verse or pericope set beside the manuscript, the public-domain English of the King James tradition, the behavior of modern translations, and the material receipt. Archaeology, genetics, and comparative linguistics are admitted only when a stratum, a sample, or a catalog number can be named.</p>
+      <p>Unbound slots are index capacity. They are not findings, and they are not cited. A forensic note is finished when a rival reading has to answer the receipt: the museum number, the siglum, the edition, or the published sample. Harmonies and slogans do not bind a file.</p>
+      <ul class="method">
+        <li><strong>Witness</strong> Original language of the copy: Hebrew, Aramaic, Greek, or Sanskrit when the file is comparative.</li>
+        <li><strong>1611</strong> King James tradition in readable 1769 spelling. The translation is public domain.</li>
+        <li><strong>Track</strong> How NIV and ESV treat the crux: base text, main reading, footnote. Their full verses are not reprinted.</li>
+        <li><strong>Receipt</strong> Excavation, museum serial, critical edition, or genetic sample. No serial is invented to fill a card.</li>
+      </ul>
+    </div>
+  </section>
+
+  <search class="control-bar" aria-label="Filter the archive">
+    <div class="wrap control-inner">
+      <div class="control-primary">
+        <label class="field search-field">
+          <span>Search</span>
+          <input id="q" type="search" name="q" placeholder="File ID or keyword — SZ-0007, Quirinius, raqia" autocomplete="off" enterkeyhint="search">
+        </label>
+        <div class="control-secondary">
+          <label class="field sort-field">
+            <span>Sort</span>
+            <select id="sort">
+              <option value="id">File ID</option>
+              <option value="department">Department</option>
+              <option value="verse">Target verse</option>
+              <option value="tier">Nuclear tier first</option>
+            </select>
+          </label>
+          <label class="bound-field">
+            <input id="bound-only" type="checkbox">
+            <span>Bound dossiers only</span>
+          </label>
+        </div>
+      </div>
+      <div class="control-meta">
+        <div id="dept-filters" class="chips" role="group" aria-label="Department"></div>
+        <p id="result-count" class="result-count" aria-live="polite">Indexing files</p>
+      </div>
+    </div>
+  </search>
+
+  <main id="archive">
+    <section id="nuclear" aria-labelledby="nuclear-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="nuclear-title">Nuclear tier</h2>
+          <p class="lede">Macro-level audits. The red rule marks the tier. Gold marks a bound serial. Open a card and switch the four layers.</p>
+        </div>
+        <!-- Nuclear cards mount here. They are a filtered view of the same catalog as the index, not a second database. -->
+        <div id="nuclear-grid" class="file-grid file-grid--nuclear"></div>
+      </div>
+    </section>
+
+    <section id="feed" tabindex="-1" aria-labelledby="feed-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="feed-title">The index</h2>
+          <p class="lede">Full catalog of <span id="milestone-count">350</span> files, including the nuclear tier. Filtering runs in the browser against the in-memory index.</p>
+        </div>
+        <p id="empty-state" class="empty" hidden>No files match this filter.</p>
+        <!--
+          FEED MOUNT
+          app.js paints one card face per file (ID, department, verse, summary).
+          Manuscript bodies render only when a dossier is opened.
+          Raise the milestone in app.js (ARCHIVE_MILESTONE) when the payload grows past 350.
+        -->
+        <div id="feed-grid" class="file-grid">
+          <p class="empty" id="boot-msg">Loading the index…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Stratum Zero · stratum-zero.org</p>
+      <p id="footer-meta">Catalog initializing.</p>
+    </div>
+  </footer>
+
+  <noscript>
+    <div class="wrap noscript">
+      <p>The 350-file index needs JavaScript for search, department filters, and the translation tabs. Departments on file: Archaeology, Scribal Revisions, Roman Politics, Primitive Science, Moral Defections. Nuclear dossiers begin with Deuteronomy 32:8, Isaiah 7:14, Mark 16, 1 John 5:7–8, John 7:53–8:11, Genesis 1:6–8, Luke 2:1–2, and Joshua 6.</p>
+    </div>
+  </noscript>
+</body>
+</html>
