@@ -772,6 +772,7 @@ function docResearchFile(n, spec) {
     ...base,
     keywords: spec.keywords,
     summary: spec.summary,
+    serialLabel: spec.lens || "Research file, unbound",
     witnessLanguage: spec.witnessLanguage,
     edition: spec.edition,
     forensic: {
@@ -972,20 +973,24 @@ function renderCuratedDetail(file, uid) {
 }
 
 function renderScaffoldDetail(file, uid) {
+  const research = String(file.summary || "").startsWith("Unbound research claim.");
+  const claim = file.forensic && file.forensic.body ? paragraphs(file.forensic.body) : "";
   return tabShell(uid, [
     {
       id: "manuscript",
-      html: `<p class="panel-kicker">Witness</p><p>Expected language for ${esc(file.verse)}: ${esc(file.witnessLanguage)}. Locus: ${esc(file.lens)}.</p><p>${esc(UNBOUND_SIGLUM)} No glyphs are fabricated in an unbound file.</p>`
+      html: research
+        ? `<p class="panel-kicker">Research claim</p>${claim}<p class="fine">Language expected for ${esc(file.verse)}: ${esc(file.witnessLanguage)}. Locus: ${esc(file.lens)}. No diplomatic glyphs are attached, and no museum number is invented.</p>`
+        : `<p class="panel-kicker">Witness</p><p>Expected language for ${esc(file.verse)}: ${esc(file.witnessLanguage)}. Locus: ${esc(file.lens)}.</p><p>${esc(UNBOUND_SIGLUM)} No glyphs are fabricated in an unbound file.</p>`
     },
     {
       id: "kjv",
       html: file.kjv
         ? `<p class="panel-kicker">King James Version (1611)</p><blockquote class="kjv">${esc(file.kjv)}</blockquote><p class="fine">${esc(KJV_NOTE)}</p><p>${esc(UNBOUND_SIGLUM)}</p>`
-        : `<p class="panel-kicker">King James Version (1611)</p><p>Public-domain text for ${esc(file.verse)} attaches when the file is promoted. ${esc(UNBOUND_SIGLUM)}</p><p class="fine">${esc(KJV_NOTE)}</p>`
+        : `<p class="panel-kicker">King James Version (1611)</p><p>${research ? "This research file does not include a King James transcription." : `Public-domain text for ${esc(file.verse)} attaches when the file is promoted.`} ${esc(UNBOUND_SIGLUM)}</p><p class="fine">${esc(KJV_NOTE)}</p>`
     },
     {
       id: "modern",
-      html: `<h4>NASB / NIV / ESV</h4><p>Not written. On promotion, name the reading, the footnote, and the base text (${esc(file.edition)} or a stated versional departure). Full modern lines are not stored.</p><p>${esc(UNBOUND_SIGLUM)}</p><p class="fine">${esc(MODERN_NOTE)}</p>`
+      html: `<h4>NASB / NIV / ESV</h4><p>${research ? "Modern lines are not stored. The research claim is in the manuscript layer. It is not a translation-committee note." : `Not written. On promotion, name the reading, the footnote, and the base text (${esc(file.edition)} or a stated versional departure). Full modern lines are not stored.`}</p><p>${esc(UNBOUND_SIGLUM)}</p><p class="fine">${esc(MODERN_NOTE)}</p>`
     },
     {
       id: "forensic",
