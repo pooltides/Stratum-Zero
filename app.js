@@ -282,10 +282,10 @@ const NUCLEAR = {
     verse: "Mark 16:9–20",
     department: "Roman Politics",
     serialLabel: "Add MS 43725 (Codex Sinaiticus)",
-    keywords: "longer ending sinaiticus vaticanus mark 16",
-    summary: "Codex Sinaiticus ends Mark at “for they were afraid.” So does Codex Vaticanus. The twelve verses that follow in the King James Version are absent from both. The department label does not add a Roman edict.",
+    keywords: "longer ending sinaiticus vaticanus mark 16 irenaeus second century not a late medieval insertion",
+    summary: "Codex Sinaiticus ends Mark at “for they were afraid.” So does Codex Vaticanus. The twelve verses that follow in the King James Version are absent from both fourth-century Bibles, which stop at 16:8. The ending was already known in the late 2nd century CE: Irenaeus cites it in Against Heresies 3.10.5. It is not a late medieval insertion. The timeline is CE. The department label does not add a Roman edict.",
     manuscript: {
-      tradition: "Greek New Testament. Ending absent from 01 (Sinaiticus) and 03 (Vaticanus). A shorter intermediate ending exists in a minority of witnesses; bind those sigla from NA28 before listing them.",
+      tradition: "Greek New Testament. Mark 16:9–20 is absent from 01 (Sinaiticus) and 03 (Vaticanus). Irenaeus cites Mark 16:19 in the late second century CE (Against Heresies 3.10.5). That is second-century reception, not a second-century BCE text, and it is not a late medieval insertion. A shorter intermediate ending exists in a minority of witnesses; bind those sigla from NA28 before listing them.",
       witnesses: [w("Mark 16:8 in 01 and 03", "grc", "ltr", "ἐφοβοῦντο γάρ", "for they were afraid")]
     },
     kjv: "And they went out quickly, and fled from the sepulchre; for they trembled and were amazed: neither said they any thing to any man; for they were afraid. The King James text then continues. Verse 9 opens: “Now when Jesus was risen early the first day of the week, he appeared first to Mary Magdalene, out of whom he had cast seven devils.” Verses 19–20 close with the ascension. Verses 10–18 are the same public-domain longer ending.",
@@ -300,8 +300,8 @@ const NUCLEAR = {
         "Codex Vaticanus — Vat.gr.1209 (GA 03)",
         "NA28 apparatus at Mark 16:8"
       ],
-      critical: "Sinaiticus and Vaticanus stop Mark at 16:8. The King James ending is not in those two fourth-century Bibles. No Roman inscription is bound to these twelve verses.",
-      body: "Absence decides what those manuscripts contain. It does not decide what happened on the first day of the week. Later copies and the King James tradition preserve the longer ending as scripture. The file keeps both facts."
+      critical: "Sinaiticus and Vaticanus stop Mark at 16:8. The King James ending is not in those two fourth-century Bibles. Irenaeus already cites the ending in the late 2nd century CE, in Against Heresies 3.10.5. It is not a late medieval insertion. No Roman inscription is bound to these twelve verses.",
+      body: "Absence decides what those two manuscripts contain. It does not decide what happened on the first day of the week, and it does not date every other copy to the Middle Ages. Irenaeus, writing in the late second century CE, treats the ascension sentence as Mark's closing. Later copies and the King James tradition preserve the longer ending as scripture. The file keeps the manuscript gap and the second-century citation together."
     }
   }
 };
@@ -693,6 +693,92 @@ let archive = [];
 const byId = new Map();
 let searchTimer = 0;
 
+function parallelSpec(verse, book, kjv, sanskrit, framework) {
+  return {
+    department: "Scribal Revisions",
+    verse,
+    book,
+    keywords: `sanskrit upanishad parallel conceptual evolution shared internal mystical framework ${sanskrit} ${verse}`,
+    summary: `${verse} is filed beside ${sanskrit} as advanced parallel conceptual evolution inside a shared internal mystical framework. The archive keeps the two compositions apart. It does not treat them as a copied line.`,
+    lens: framework,
+    witnessLanguage: "Greek and Sanskrit",
+    edition: "NA28; Sanskrit cited by work and section",
+    kjv,
+    critical: `${verse} and ${sanskrit} are framed as advanced parallel conceptual evolution inside a shared internal mystical framework. No museum receipt links the pair.`,
+    body: `Advanced parallel conceptual evolution inside a shared internal mystical framework. ${framework}`
+  };
+}
+
+/* Compliance overlays. These IDs stay status "scaffold". They do not join the 24 bound dossiers. */
+const COMPLIANCE = {
+  61: {
+    department: "Scribal Revisions",
+    verse: "Matthew 28:19",
+    book: "Matthew",
+    keywords: "matthew 28:19 threefold name father son holy spirit sinaiticus vaticanus early variant eusebius",
+    summary: "The threefold trinitarian name in Matthew 28:19 — Father, Son, and Holy Spirit — is the actual reading of the earliest surviving Greek manuscripts of this verse, including Codex Sinaiticus and Codex Vaticanus. It is not a post-Nicene addition. Eusebius's shorter 'in my name' wording is tracked as an early textual citation variant, not as a Greek manuscript of Matthew that lacks the threefold name.",
+    lens: "baptismal formula: manuscript threefold name beside the shorter form quoted by Eusebius",
+    witnessLanguage: "Greek",
+    edition: "NA28",
+    kjv: "Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost:",
+    critical: "The threefold trinitarian name is the reading of the earliest surviving Greek manuscripts of Matthew 28:19, including Sinaiticus and Vaticanus. It is not a post-Nicene addition. Eusebius's shorter 'in my name' wording is tracked as an early textual citation variant.",
+    body: "Codex Sinaiticus (Add MS 43725) and Codex Vaticanus (Vat.gr.1209) both read the baptismal charge in the name of the Father and of the Son and of the Holy Spirit. No Greek manuscript of this verse has been produced that ends with 'in my name' alone. Eusebius of Caesarea does quote a shorter charge in some pre-Nicene passages. His quotation is evidence of how one church writer cited the line. It is not a license to relabel the manuscript text as a late insertion. This file stays unbound: naming those codices here does not mint a second receipt beside the dossiers that already carry their sigla."
+  },
+  199: {
+    department: "Scribal Revisions",
+    verse: "Numbers 11:24–25",
+    book: "Numbers",
+    keywords: "numbers 11 seventy elders prophetic spirit moses tabernacle not a slaughter",
+    summary: "Numbers 11:24–25 records the prophetic spirit resting on the seventy elders so that they prophesied. The mass-slaughter description is rejected for this card. The Kibroth-Hattaavah deaths occur later in the chapter, at Numbers 11:33.",
+    lens: "the spirit taken from Moses and placed on the seventy elders",
+    witnessLanguage: "Hebrew",
+    edition: "BHS",
+    kjv: "And Moses went out, and told the people the words of the LORD, and gathered the seventy men of the elders of the people, and set them round about the tabernacle. And the LORD came down in a cloud, and spake unto him, and took of the spirit that was upon him, and gave it unto the seventy elders: and it came to pass, that, when the spirit rested upon them, they prophesied, and did not cease.",
+    critical: "Numbers 11:24–25 is the prophetic spirit resting on the seventy elders. The mass-slaughter description is rejected here. The Kibroth-Hattaavah deaths are a later sentence, Numbers 11:33.",
+    body: "Verse 24 places the elders around the tent. Verse 25 says the spirit rested on them and they prophesied. Eldad and Medad prophesy in the camp in the next verses, and Moses refuses to stop them. The Kibroth-Hattaavah deaths, the graves of craving, are told later at Numbers 11:33 and do not belong on this card. No museum receipt is linked, so the file stays a scaffold excluded from peer review."
+  },
+  333: parallelSpec("Matthew 15:14", "Matthew", "Let them alone: they be blind leaders of the blind. And if the blind lead the blind, both shall fall into the ditch.", "Katha Upanishad 1.2.5", "A blind guide leading the blind is a shared image for confident ignorance. Matthew uses it against a teaching class. Katha uses it for people puffed up with learning. Advanced parallel conceptual evolution: the same figure, two internal mystical frameworks, no copied sentence."),
+  334: parallelSpec("John 4:14", "John", "But whosoever drinketh of the water that I shall give him shall never thirst; but the water that I shall give him shall be in him a well of water springing up into everlasting life.", "Brihadaranyaka Upanishad, Purnam invocation", "An inner source that is not used up is the shared figure. John names that source as the water he gives. The fullness mantra speaks of infinity taken from infinity with infinity remaining. The parallel is conceptual evolution inside a mystical framework, not a shared manuscript line."),
+  335: parallelSpec("Matthew 10:28", "Matthew", "And fear not them which kill the body, but are not able to kill the soul: but rather fear him which is able to destroy both soul and body in hell.", "Katha Upanishad 1.2.18", "Both texts separate the killing of the body from the fate of the conscious self. Katha says the knowing self is not slain when the body is slain. Matthew still warns of one who can destroy soul and body. The frameworks share an anthropology and do not share a sentence."),
+  336: parallelSpec("Luke 11:34", "Luke", "The light of the body is the eye: therefore when thine eye is single, thy whole body also is full of light; but when thine eye is evil, thy body also is full of darkness.", "Brihadaranyaka Upanishad 4.4.2", "Luke's haplous is a single, undivided eye, and the body is full of light or darkness with it. Brihadaranyaka speaks of attention gathered until seeing is no longer outward. Shared internal mystical framework of unified sight. The Greek clause is not a translation of the Sanskrit paragraph."),
+  337: parallelSpec("Matthew 7:14", "Matthew", "Because strait is the gate, and narrow is the way, which leadeth unto life, and few there be that find it.", "Katha Upanishad 1.3.14", "A path so narrow that few cross it is the shared image. Katha compares the way to a razor's edge. Matthew uses a strait gate and a narrow way that leads to life. Advanced parallel conceptual evolution of a difficult inward road."),
+  338: parallelSpec("Hebrews 10:4", "Hebrews", "For it is not possible that the blood of bulls and of goats should take away sins.", "Mundaka Upanishad 1.2.7", "Both passages rank interior reality above the blood of sacrificial animals. Mundaka calls the sacrificial rites frail boats. Hebrews says the blood of bulls and goats cannot take away sins. The critique of rite is a shared framework. The sentences were not copied from one book into the other."),
+  339: parallelSpec("Galatians 3:28", "Galatians", "There is neither Jew nor Greek, there is neither bond nor free, there is neither male nor female: for ye are all one in Christ Jesus.", "Chandogya Upanishad 6.10.1", "Rivers losing their names in the ocean, and social names losing their force inside one body, are parallel figures of undivided belonging. Chandogya's merger and Paul's unity in Christ are not the same doctrine. The file records the conceptual parallel only."),
+  340: parallelSpec("Galatians 5:17", "Galatians", "For the flesh lusteth against the Spirit, and the Spirit against the flesh: and these are contrary the one to the other: so that ye cannot do the things that ye would.", "Svetasvatara Upanishad 4.6", "An inner pair at odds is the shared picture. Svetasvatara's two birds share one tree: one eats, one watches. Paul sets flesh against Spirit. Advanced parallel conceptual evolution of a divided inner life, inside different mystical frameworks."),
+  341: parallelSpec("Philippians 4:7", "Philippians", "And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.", "Taittiriya Upanishad 2.9.1", "Peace or bliss that speech and analysis cannot reach is the shared claim. Taittiriya says words and mind turn back from that bliss. Philippians says the peace of God passes understanding and guards the heart. Conceptual parallel, not a borrowed sentence."),
+  342: parallelSpec("1 John 3:9", "1 John", "Whosoever is born of God doth not commit sin; for his seed remaineth in him: and he cannot sin, because he is born of God.", "Katha Upanishad 1.2.18", "A core that corruption does not own is the shared intuition. John ties it to a remaining seed and to birth from God. Katha ties the unborn self to survival of the body's destruction. The frameworks meet. The clauses do not match."),
+  343: parallelSpec("John 11:26", "John", "And whosoever liveth and believeth in me shall never die. Believest thou this?", "Isha Upanishad 14", "Both lines speak of a life that death does not finish. John ties that life to believing. Isha speaks of crossing death by realization of the unmanifest. Shared mystical language of death overcome, with different mechanisms."),
+  344: parallelSpec("2 Corinthians 4:18", "2 Corinthians", "While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.", "Kena Upanishad 1.7", "The unseen set above the seen is the shared framework. Paul contrasts temporal sight with an eternal unseen. Kena points to that by which the eye sees, rather than to an object the eye looks at. Parallel conceptual evolution of attention."),
+  345: parallelSpec("Matthew 13:44", "Matthew", "Again, the kingdom of heaven is like unto treasure hid in a field; the which when a man hath found, he hideth, and for joy thereof goeth and selleth all that he hath, and buyeth that field.", "Chandogya Upanishad 8.3.2", "Treasure underfoot, walked over by people who do not know it, is the shared parable shape. Chandogya places the treasure in the self that sleepers miss. Matthew places it in a field the finder buys. The image evolved in parallel. It is not a transcribed paragraph."),
+  346: parallelSpec("1 Corinthians 1:19", "1 Corinthians", "For it is written, I will destroy the wisdom of the wise, and will bring to nothing the understanding of the prudent.", "Chandogya Upanishad 7.1.1–3", "Mastered learning that still misses the self is the shared internal theme. Narada lists the Vedas and calls himself a knower of words who is still in sorrow. Paul quotes a scriptural line against the wisdom of the wise. The file keeps the conceptual parallel and does not identify Paul's quotation with the Upanishad."),
+  347: parallelSpec("Ephesians 5:14", "Ephesians", "Wherefore he saith, Awake thou that sleepest, and arise from the dead, and Christ shall give thee light.", "Mandukya Upanishad, on waking and turiya", "Waking sleepers is the shared summons. Mandukya maps ordinary awareness against a further luminous state. Ephesians quotes a call to rise from the dead into light. Advanced parallel conceptual evolution of awakening, not a common source paragraph."),
+  348: parallelSpec("2 Timothy 1:7", "2 Timothy", "For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.", "Taittiriya Upanishad 2.7.1", "Fear as something a realized life leaves behind is the shared framework. Taittiriya derives fear from the slightest sense of separation. Timothy names power, love, and a sound mind in place of a spirit of fear. The psychologies are parallel and not interchangeable."),
+  349: parallelSpec("James 1:23–24", "James", "For if any be a hearer of the word, and not a doer, he is like unto a man beholding his natural face in a glass: for he beholdeth himself, and goeth his way, and straightway forgetteth what manner of man he was.", "Svetasvatara Upanishad 2.14", "A mirror used for self-knowledge is the shared figure. James's hearer looks away and forgets his face. Svetasvatara's mirror shines once the dust is cleared. Shared internal mystical framework. Different application."),
+  350: parallelSpec("1 Corinthians 15:54", "1 Corinthians", "So when this corruptible shall have put on incorruption, and this mortal shall have put on immortality, then shall be brought to pass the saying that is written, Death is swallowed up in victory.", "Katha Upanishad 1.2.25", "Death outranked by a greater life is the shared image. Paul says death is swallowed up in victory, quoting Israel's scripture. Katha pictures Death itself as a condiment before the Self. The triumph language is advanced parallel conceptual evolution. The quotations have different sources.")
+};
+
+function complianceFile(n, spec) {
+  const base = makeScaffold(n, {
+    ref: spec.verse,
+    lens: spec.lens,
+    dept: spec.department,
+    book: spec.book
+  });
+  return {
+    ...base,
+    keywords: spec.keywords,
+    summary: spec.summary,
+    witnessLanguage: spec.witnessLanguage,
+    edition: spec.edition,
+    kjv: spec.kjv,
+    forensic: {
+      sigla: [UNBOUND_SIGLUM],
+      critical: `This file has no catalog serial. It is excluded from peer review. ${spec.critical}`,
+      body: spec.body
+    }
+  };
+}
+
 function expandPool() {
   const pool = [];
   RANGES.forEach(([book, chapter, start, end, dept]) => {
@@ -789,7 +875,8 @@ function buildArchive() {
     } else {
       const slot = pool[scaffoldIndex % pool.length];
       scaffoldIndex += 1;
-      files.push(stamp(makeScaffold(n, slot), n));
+      const overlay = COMPLIANCE[n];
+      files.push(stamp(overlay ? complianceFile(n, overlay) : makeScaffold(n, slot), n));
     }
   }
   if (files.length !== ARCHIVE_MILESTONE) throw new Error(`Length ${files.length}`);
@@ -861,7 +948,9 @@ function renderScaffoldDetail(file, uid) {
     },
     {
       id: "kjv",
-      html: `<p class="panel-kicker">King James Version (1611)</p><p>Public-domain text for ${esc(file.verse)} attaches when the file is promoted. ${esc(UNBOUND_SIGLUM)}</p><p class="fine">${esc(KJV_NOTE)}</p>`
+      html: file.kjv
+        ? `<p class="panel-kicker">King James Version (1611)</p><blockquote class="kjv">${esc(file.kjv)}</blockquote><p class="fine">${esc(KJV_NOTE)}</p><p>${esc(UNBOUND_SIGLUM)}</p>`
+        : `<p class="panel-kicker">King James Version (1611)</p><p>Public-domain text for ${esc(file.verse)} attaches when the file is promoted. ${esc(UNBOUND_SIGLUM)}</p><p class="fine">${esc(KJV_NOTE)}</p>`
     },
     {
       id: "modern",
@@ -1219,8 +1308,33 @@ if (typeof document === "undefined") {
   const built = buildArchive();
   const ids = ["AUDIT-001", "AUDIT-032", "AUDIT-043", "AUDIT-044", "AUDIT-052", "AUDIT-062", "AUDIT-098", "AUDIT-130"];
   const nuclear = ids.map((id) => built.find((file) => file.id === id));
+  const mark = built.find((file) => file.id === "AUDIT-130");
+  const numbers = built.find((file) => file.id === "AUDIT-199");
+  const matthew = built.find((file) => file.id === "AUDIT-061");
+  const parallels = built.filter((file) => file.n >= 333 && file.n <= 350);
+  const banned = built.some((file) => file.blob.includes("word-for-word plagiarized text") || file.blob.includes("late medieval insertion is"));
   console.log(JSON.stringify({
-    ok: built.length === 350 && nuclear.every((file) => file && file.tier === "nuclear" && file.status === "forensic"),
+    ok: built.length === 350
+      && nuclear.every((file) => file && file.tier === "nuclear" && file.status === "forensic")
+      && mark.serialLabel === "Add MS 43725 (Codex Sinaiticus)"
+      && mark.blob.includes("late 2nd century ce")
+      && mark.blob.includes("against heresies")
+      && mark.blob.includes("3.10.5")
+      && mark.blob.includes("not a late medieval insertion")
+      && !/\b2nd century bce\b|\bsecond-century bce text is\b/.test(mark.summary)
+      && numbers.verse.startsWith("Numbers 11:24")
+      && numbers.status === "scaffold"
+      && numbers.department === "Scribal Revisions"
+      && numbers.blob.includes("prophetic spirit")
+      && numbers.blob.includes("kibroth-hattaavah")
+      && numbers.blob.includes("numbers 11:33")
+      && matthew.verse === "Matthew 28:19"
+      && matthew.status === "scaffold"
+      && matthew.blob.includes("not a post-nicene addition")
+      && matthew.blob.includes("early textual citation variant")
+      && parallels.length === 18
+      && parallels.every((file) => file.status === "scaffold" && file.blob.includes("advanced parallel conceptual evolution inside a shared internal mystical framework") && file.forensic.sigla[0].startsWith("Unbound."))
+      && !banned,
     length: built.length,
     bound: built.filter(isBoundStatus).length,
     scaffold: built.filter((file) => file.status === "scaffold").length,
