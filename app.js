@@ -1055,10 +1055,83 @@ function renderDetail(file, uid) {
   return layers + threadFooter(file);
 }
 
-function statusMeta(file) {
-  if (file.status === "forensic") return ["status-tag--forensic", "Forensic"];
+const WITNESS_PAGES = {
+  "AUDIT-019": "https://www.aleppocodex.org/",
+  "AUDIT-020": "https://www.britishmuseum.org/collection/object/W_K-3401",
+  "AUDIT-033": "https://collections.louvre.fr/en/ark:/53355/cl010120339",
+  "AUDIT-043": "https://www.deadseascrolls.org.il/explore-the-archive/manuscript/1QIsa-a-1",
+  "AUDIT-052": "https://digi.vatlib.it/view/MSS_Vat.gr.1209",
+  "AUDIT-062": "https://collections.louvre.fr/en/ark:/53355/cl010120339",
+  "AUDIT-098": "https://www.deadseascrolls.org.il/explore-the-archive/manuscript/4Q37-1",
+  "AUDIT-130": "https://codexsinaiticus.org/en/manuscript.aspx"
+};
+
+function gradeOf(file) {
+  if (file.tier === "nuclear") return ["status-tag--forensic", "Locked"];
   if (file.status === "bound") return ["status-tag--bound", "Bound"];
-  return ["status-tag--unbound", "Unbound"];
+  if (file.id === "AUDIT-206") return ["status-tag--empty", "Empty"];
+  if (String(file.summary).includes("repeats an earlier file")) return ["status-tag--repeat", "Repeat"];
+  return ["status-tag--open", "Open case"];
+}
+
+function earlierId(file) {
+  const match = String((file.forensic && file.forensic.body) || "").match(/already filed at (AUDIT-\d{3})/);
+  return match ? match[1] : "";
+}
+
+function claimSentence(file) {
+  if (file.id === "AUDIT-206") return "No research file was supplied for this number.";
+  return String(file.summary)
+    .replace(/^Unbound research claim\.\s*/, "")
+    .replace(/^This entry repeats an earlier file\.\s*/, "");
+}
+
+function concernSentence(file) {
+  if (file.status === "bound") return file.forensic.critical;
+  if (file.id === "AUDIT-206") return "The document skips this number. There is no claim to test.";
+  if (file.id === "AUDIT-061") return "The concern is an early citation variant. The threefold name is in the earliest Greek manuscripts of this verse. Eusebius's shorter wording is not a surviving copy of Matthew.";
+  if (file.id === "AUDIT-199") return "The concern is a misread verse. Numbers 11:24–25 is the prophetic spirit on the seventy elders. The Kibroth-Hattaavah deaths are Numbers 11:33.";
+  if (String(file.summary).includes("repeats an earlier file")) {
+    const prior = earlierId(file);
+    return prior
+      ? `This entry repeats ${prior}. It does not add a second concern.`
+      : "This entry repeats an earlier file. It does not add a second concern.";
+  }
+  const low = `${file.summary} ${(file.forensic && file.forensic.body) || ""}`.toLowerCase();
+  if (/parallel conceptual|upanishad|sanskrit|rigveda/.test(low)) {
+    return "The concern is a parallel inside a shared framework. No shared manuscript is linked.";
+  }
+  if (/anachron|chronolog|did not exist|not exist|centuries later/.test(low)) {
+    return "The concern is chronological. A name, a place, or an office is placed before a linked witness can carry it.";
+  }
+  if (/contradict|discrepanc|incompatible|fracture/.test(low)) {
+    return "The concern is internal. The passages do not report the same fact.";
+  }
+  if (/no evidence|silence|void|absent|failed to recover|unfortified|not a single|non-existent|nonexistent/.test(low)) {
+    return "The concern is a missing witness. The claim expects an object or a record, and none is linked.";
+  }
+  return "The concern is authenticity. The claim is on file, and no witness is linked to it.";
+}
+
+function witnessLink(file) {
+  const href = WITNESS_PAGES[file.id];
+  if (!href) return esc(file.serialLabel);
+  return `<a class="witness-link" href="${esc(href)}" rel="noopener noreferrer">${esc(file.serialLabel)}</a>`;
+}
+
+function caseBlock(file) {
+  const unbound = file.status === "bound"
+    ? "The receipt on this card is linked. What that object does not prove is the concern above."
+    : file.id === "AUDIT-206"
+      ? "Nothing is on file to bind."
+      : "No museum or library serial is linked.";
+  const counter = file.status === "bound" ? witnessLink(file) : "No witness filed.";
+  return `<dl class="case">
+    <div><dt>Claim</dt><dd>${esc(claimSentence(file))}</dd></div>
+    <div><dt>Concern</dt><dd>${esc(concernSentence(file))}</dd></div>
+    <div><dt>Still unbound</dt><dd>${unbound}</dd></div>
+    <div><dt>Counter-file</dt><dd>${counter}</dd></div>
+  </dl>`;
 }
 
 function renderCard(file, region) {
@@ -1069,7 +1142,10 @@ function renderCard(file, region) {
   const uid = `${region}-${file.id}`;
   const detailId = `${uid}-detail`;
   const tier = file.tier === "nuclear" ? `<span class="tier-tag">Nuclear tier</span>` : "";
-  const [statusClass, statusLabel] = statusMeta(file);
+  const [statusClass, statusLabel] = gradeOf(file);
+  const face = file.tier === "nuclear"
+    ? `<p class="summary">${esc(file.summary)}</p><p class="serial-line">${witnessLink(file)}</p>`
+    : caseBlock(file);
   article.innerHTML = `
     <div class="tag-row">
       <p class="file-id">${esc(file.id)}</p>
@@ -1078,8 +1154,7 @@ function renderCard(file, region) {
       <span class="status-tag ${statusClass}">${statusLabel}</span>
     </div>
     <h3>${esc(file.verse)}</h3>
-    <p class="summary">${esc(file.summary)}</p>
-    <p class="serial-line">${esc(file.serialLabel)}</p>
+    ${face}
     <button class="expand" type="button" aria-expanded="false" aria-controls="${detailId}">Open dossier</button>
     <div class="detail" id="${detailId}" hidden></div>
   `;
