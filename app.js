@@ -1130,18 +1130,31 @@ function caseBlock(file) {
     : file.id === "AUDIT-206"
       ? "Nothing is on file to bind."
       : "No museum or library serial is linked.";
-  const counter = file.status === "bound" ? witnessLink(file) : "No witness filed.";
+  const counter = file.status === "bound"
+    ? witnessLink(file)
+    : `<span class="counter-empty">No witness filed</span>`;
   return `<dl class="case">
-    <div><dt>Claim</dt><dd>${esc(claimSentence(file))}</dd></div>
-    <div><dt>Concern</dt><dd>${esc(concernSentence(file))}</dd></div>
-    <div><dt>Still unbound</dt><dd>${unbound}</dd></div>
-    <div><dt>Counter-file</dt><dd>${counter}</dd></div>
+    <div class="case-claim"><dt>Claim</dt><dd>${esc(claimSentence(file))}</dd></div>
+    <div class="case-ledger">
+      <div><dt>Concern</dt><dd>${esc(concernSentence(file))}</dd></div>
+      <div><dt>Still unbound</dt><dd>${unbound}</dd></div>
+      <div class="case-counter"><dt>Counter-file</dt><dd>${counter}</dd></div>
+    </div>
   </dl>`;
 }
 
 function renderCard(file, region) {
   const article = document.createElement("article");
-  article.className = `file-card${file.tier === "nuclear" ? " file-card--nuclear" : ""}`;
+  const gradeClass = file.tier === "nuclear"
+    ? " file-card--nuclear"
+    : file.status === "bound"
+      ? " file-card--bound"
+      : file.id === "AUDIT-206"
+        ? " file-card--empty"
+        : String(file.summary).includes("repeats an earlier file")
+          ? " file-card--repeat"
+          : " file-card--open";
+  article.className = `file-card${gradeClass}`;
   article.dataset.id = file.id;
   article.dataset.department = file.department;
   const uid = `${region}-${file.id}`;
