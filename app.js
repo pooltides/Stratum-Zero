@@ -947,6 +947,13 @@ function siglaList(sigla) {
   return `<ul class="serials">${sigla.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>`;
 }
 
+function plateParagraphs(text) {
+  const parts = String(text).split(/\n\n/).map((part) => part.trim()).filter(Boolean);
+  if (!parts.length) return "";
+  const [lead, ...rest] = parts;
+  return `<p class="plate-sentence">${esc(lead)}</p>${rest.map((part) => `<p>${esc(part)}</p>`).join("")}`;
+}
+
 function renderCuratedDetail(file, uid) {
   const witnesses = file.manuscript.witnesses.map((witness) => {
     const dir = witness.dir === "rtl" ? "rtl" : "ltr";
@@ -955,7 +962,7 @@ function renderCuratedDetail(file, uid) {
   return tabShell(uid, [
     {
       id: "manuscript",
-      html: `<p class="panel-kicker">Witness</p><p>${esc(file.manuscript.tradition)}</p>${witnesses}`
+      html: `<p class="panel-kicker">Witness</p><p class="plate-sentence">${esc(file.manuscript.tradition)}</p>${witnesses}`
     },
     {
       id: "kjv",
@@ -979,13 +986,12 @@ function researchArgument(file) {
 
 function renderScaffoldDetail(file, uid) {
   const research = file.id !== "AUDIT-206";
-  const argument = paragraphs(researchArgument(file));
   return tabShell(uid, [
     {
       id: "manuscript",
       html: research
-        ? `<p class="panel-kicker">Research claim</p>${argument}<p class="fine">Language expected for ${esc(file.verse)}: ${esc(file.witnessLanguage)}. Locus: ${esc(file.lens)}.</p>`
-        : `<p class="panel-kicker">Witness</p><p>${esc(concernSentence(file))}</p>`
+        ? `<p class="panel-kicker">Research claim</p>${plateParagraphs(researchArgument(file))}<p class="fine">Language expected for ${esc(file.verse)}: ${esc(file.witnessLanguage)}. Locus: ${esc(file.lens)}.</p>`
+        : `<p class="panel-kicker">Witness</p><p class="plate-sentence">${esc(concernSentence(file))}</p>`
     },
     {
       id: "kjv",
@@ -999,7 +1005,7 @@ function renderScaffoldDetail(file, uid) {
     },
     {
       id: "forensic",
-      html: `<p class="panel-kicker">Concern</p><p>${esc(concernSentence(file))}</p>${research ? argument : ""}<p class="fine">Counter-file: No witness filed.</p>`
+      html: `<p class="panel-kicker">Concern</p><p class="plate-sentence">${esc(concernSentence(file))}</p>${research ? paragraphs(researchArgument(file)) : ""}<p class="fine">Counter-file: No witness filed.</p>`
     }
   ]);
 }
@@ -1143,6 +1149,14 @@ function caseBlock(file) {
   </dl>`;
 }
 
+function nuclearPlate(file) {
+  return `<dl class="case case--nuclear">
+    <div class="case-ledger">
+      <div class="case-counter"><dt>Receipt</dt><dd>${witnessLink(file)}</dd></div>
+    </div>
+  </dl>`;
+}
+
 function renderCard(file, region) {
   const article = document.createElement("article");
   const gradeClass = file.tier === "nuclear"
@@ -1159,15 +1173,11 @@ function renderCard(file, region) {
   article.dataset.department = file.department;
   const uid = `${region}-${file.id}`;
   const detailId = `${uid}-detail`;
-  const tier = file.tier === "nuclear" ? `<span class="tier-tag">Nuclear tier</span>` : "";
   const [statusClass, statusLabel] = gradeOf(file);
-  const face = file.tier === "nuclear"
-    ? `<p class="summary">${esc(file.summary)}</p><p class="serial-line">${witnessLink(file)}</p>`
-    : caseBlock(file);
+  const face = file.tier === "nuclear" ? nuclearPlate(file) : caseBlock(file);
   article.innerHTML = `
     <div class="tag-row">
       <p class="file-id">${esc(file.id)}</p>
-      ${tier}
       <span class="dept-tag">${esc(file.department)}</span>
       <span class="status-tag ${statusClass}">${statusLabel}</span>
     </div>
