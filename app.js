@@ -1727,6 +1727,7 @@ function caseBlock(file) {
 
 function nuclearPlate(file) {
   return `<dl class="case case--nuclear">
+    <div class="nuclear-line">${esc(file.forensic.critical)}</div>
     <div class="case-ledger">
       <div class="case-counter"><dt>Receipt</dt><dd>${witnessLink(file)}</dd></div>
     </div>

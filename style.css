@@ -329,6 +329,10 @@ button {
   gap: 14px;
 }
 
+.file-grid--nuclear {
+  align-items: start;
+}
+
 .file-card {
   display: flex;
   flex-direction: column;
@@ -535,8 +539,17 @@ button {
   color: var(--gold);
 }
 
+.nuclear-line {
+  margin: 2px 0 0;
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
 .case--nuclear .case-ledger {
-  margin-top: 8px;
+  margin-top: 14px;
   border-top-color: rgba(217, 56, 58, 0.45);
 }
 
@@ -899,14 +912,6 @@ button {
 @media (min-width: 1100px) {
   .file-grid {
     grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  .file-grid--nuclear {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .file-grid--nuclear .file-card:first-child {
-    grid-column: 1 / -1;
   }
 }
 
