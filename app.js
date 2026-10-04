@@ -1,7 +1,7 @@
 /* Stratum Zero catalog — schema 1.1
-   350 files, AUDIT-001 through AUDIT-350.
-   status "forensic" = 8 nuclear targets (IDs fixed below).
-   status "bound" = 16 further dossiers with real sigla. Together these 24 are the bound set.
+   371 files, AUDIT-001 through AUDIT-371.
+   status "forensic" = 25 nuclear targets (the original 8, plus AUDIT-351 through AUDIT-367).
+   status "bound" = 20 further dossiers with real sigla. Together these 45 are the receipt set.
    status "scaffold" = the other 326. Their sigla array is a warning, not a serial.
    Detail HTML is built only when a card is opened.
 
@@ -13,7 +13,7 @@
 */
 
 const SCHEMA_VERSION = "1.1";
-const ARCHIVE_MILESTONE = 350;
+const ARCHIVE_MILESTONE = 371;
 
 const DEPARTMENTS = [
   "Archaeology",
@@ -302,6 +302,466 @@ const NUCLEAR = {
       ],
       critical: "Sinaiticus and Vaticanus stop Mark at 16:8. The King James ending is not in those two fourth-century Bibles. Irenaeus already cites the ending in the late 2nd century CE, in Against Heresies 3.10.5. It is not a late medieval insertion. No Roman inscription is bound to these twelve verses.",
       body: "Absence decides what those two manuscripts contain. It does not decide what happened on the first day of the week, and it does not date every other copy to the Middle Ages. Irenaeus, writing in the late second century CE, treats the ascension sentence as Mark's closing. Later copies and the King James tradition preserve the longer ending as scripture. The file keeps the manuscript gap and the second-century citation together."
+    }
+  },
+  351: {
+    verse: "John 5:3b–4",
+    department: "Scribal Revisions",
+    serialLabel: "P66 and P75",
+    keywords: "bethesda angel pool p66 p75 sinaiticus vaticanus john 5:4",
+    summary: "The angel who stirs the pool is absent from P66, P75, Sinaiticus, and Vaticanus. Later Greek copies add the sentence. It is not a medieval insertion.",
+    manuscript: {
+      tradition: "Greek John. P66, P75, 01, and 03 move from the sick lying there to the man who had been ill thirty-eight years. The angel is a later Greek plus.",
+      witnesses: [w("Later Greek plus, John 5:4", "grc", "ltr", "ἄγγελος γὰρ κατὰ καιρὸν κατέβαινεν ἐν τῇ κολυμβήθρᾳ", "For an angel went down at a certain time into the pool")]
+    },
+    kjv: "In these lay a great multitude of impotent folk, of blind, halt, withered, waiting for the moving of the water. For an angel went down at a certain season into the pool, and troubled the water: whosoever then first after the troubling of the water stepped in was made whole of whatsoever disease he had.",
+    modern: {
+      nasb: "NASB notes that many manuscripts omit the angel and the troubling of the water. The track is that note, not a reprint of the verse.",
+      niv: "NIV omits John 5:4 from the main text and footnotes the later manuscripts that add the angel.",
+      esv: "ESV omits the verse from the main text and notes the manuscripts that include it."
+    },
+    forensic: {
+      sigla: [
+        "P66 — Bodmer Papyrus II (omits the angel)",
+        "P75 — Vatican Library (omits the angel)",
+        "Codex Sinaiticus Add MS 43725 and Codex Vaticanus Vat.gr.1209 (omit the angel)"
+      ],
+      critical: "P66, P75, Sinaiticus, and Vaticanus do not contain the angel at the pool. The King James verse is the later Greek plus.",
+      body: "The copies that include the sentence are real and later. Calling the angel a medieval invention would repeat the mistake made about the ending of Mark. This file records who has the sentence and who does not."
+    }
+  },
+  352: {
+    verse: "Acts 8:37",
+    department: "Scribal Revisions",
+    serialLabel: "Codex Sinaiticus",
+    keywords: "acts 8:37 eunuch confession p45 sinaiticus vaticanus irenaeus laudianus",
+    summary: "The eunuch’s confession is absent from P45, P74, Sinaiticus, Vaticanus, and Alexandrinus. Irenaeus already quotes it in Against Heresies 3.12.8, in the late 2nd century. The earliest Greek copy that contains the verse is Codex Laudianus, from the 6th century.",
+    manuscript: {
+      tradition: "Greek Acts. The verse is absent from P45, P74, 01, 02, and 03. Irenaeus, Against Heresies 3.12.8, quotes the confession in the late 2nd century CE. Codex Laudianus (GA 08, 6th century) is the earliest Greek manuscript that prints it.",
+      witnesses: [w("Later Greek confession", "grc", "ltr", "πιστεύω τὸν Ἰησοῦν Χριστὸν εἶναι τὸν υἱὸν τοῦ θεοῦ", "I believe that Jesus Christ is the Son of God")]
+    },
+    kjv: "And Philip said, If thou believest with all thine heart, thou mayest. And he answered and said, I believe that Jesus Christ is the Son of God.",
+    modern: {
+      nasb: "NASB omits Acts 8:37 from the main text and notes the manuscripts that add the confession.",
+      niv: "NIV omits the verse and footnotes the later witnesses.",
+      esv: "ESV omits the verse and notes the addition."
+    },
+    forensic: {
+      sigla: [
+        "P45 — Chester Beatty (omits the verse)",
+        "Codex Sinaiticus Add MS 43725; Codex Vaticanus Vat.gr.1209; Codex Alexandrinus",
+        "Irenaeus, Against Heresies 3.12.8 — late 2nd century CE",
+        "Codex Laudianus, GA 08 — earliest Greek copy that contains the verse, 6th century"
+      ],
+      critical: "Sinaiticus does not contain Acts 8:37. Neither do P45, P74, Vaticanus, or Alexandrinus. Irenaeus already quotes the confession in the late 2nd century CE. It is not a medieval insertion.",
+      body: "The King James verse follows the later Greek line that Erasmus put into the text from a margin. The file keeps the early absence and the second-century citation together."
+    }
+  },
+  353: {
+    verse: "1 Timothy 3:16",
+    department: "Scribal Revisions",
+    serialLabel: "Codex Sinaiticus",
+    keywords: "1 timothy 3:16 hos theos sinaiticus god was manifest",
+    summary: "The first hand of Sinaiticus reads ὅς, “who.” A later corrector writes θεός, “God.” Vaticanus has no page of 1 Timothy. No first-hand uncial before the 8th or 9th century reads θεός.",
+    manuscript: {
+      tradition: "Greek Pastoral. Sinaiticus first hand: ὃς ἐφανερώθη. A later corrector changes it toward θεός. Codex Ephraemi’s first hand also reads ὅς. Vaticanus is lacunose for the whole of 1 Timothy.",
+      witnesses: [
+        w("Sinaiticus, first hand", "grc", "ltr", "ὃς ἐφανερώθη ἐν σαρκί", "who was manifested in the flesh"),
+        w("Later Greek", "grc", "ltr", "θεὸς ἐφανερώθη ἐν σαρκί", "God was manifested in the flesh")
+      ]
+    },
+    kjv: "And without controversy great is the mystery of godliness: God was manifest in the flesh, justified in the Spirit, seen of angels, preached unto the Gentiles, believed on in the world, received up into glory.",
+    modern: {
+      nasb: "NASB reads “He who was revealed in the flesh” and footnotes the later reading “God.”",
+      niv: "NIV reads “He appeared in the flesh” and footnotes the manuscript difference.",
+      esv: "ESV reads “He was manifested in the flesh” and notes the reading “God.”"
+    },
+    forensic: {
+      sigla: [
+        "Codex Sinaiticus — British Library Add MS 43725, first hand ὅς, later corrector θεός",
+        "Codex Ephraemi Rescriptus, first hand ὅς",
+        "Codex Vaticanus — no leaf of 1 Timothy"
+      ],
+      critical: "Vaticanus cannot witness this verse. Those pages are missing. The first hand of Sinaiticus reads who, not God.",
+      body: "The King James “God was manifest” follows the later correction. A file that cites Vaticanus for this line is citing a gap."
+    }
+  },
+  354: {
+    verse: "Mark 1:2",
+    department: "Scribal Revisions",
+    serialLabel: "Codex Sinaiticus",
+    keywords: "mark 1:2 isaiah malachi prophets sinaiticus vaticanus",
+    summary: "Sinaiticus and Vaticanus read “in Isaiah the prophet.” The first line of the quotation is Malachi 3:1. “In the prophets” is the later repair.",
+    manuscript: {
+      tradition: "Greek Mark. 01 and 03 read ἐν τῷ Ἠσαΐᾳ τῷ προφήτῃ. The quotation opens with Malachi 3:1 and continues with Isaiah 40:3. Alexandrinus and the later Byzantine text read “in the prophets.”",
+      witnesses: [
+        w("Sinaiticus and Vaticanus", "grc", "ltr", "ἐν τῷ Ἠσαΐᾳ τῷ προφήτῃ", "in Isaiah the prophet"),
+        w("Opening line, Malachi 3:1", "grc", "ltr", "ἰδοὺ ἀποστέλλω τὸν ἄγγελόν μου", "Behold, I send my messenger")
+      ]
+    },
+    kjv: "As it is written in the prophets, Behold, I send my messenger before thy face, which shall prepare thy way before thee.",
+    modern: {
+      nasb: "NASB reads “in Isaiah the prophet” and the quotation still opens with the Malachi line.",
+      niv: "NIV reads “in Isaiah the prophet.” The Malachi line is in the verse, not only in a footnote.",
+      esv: "ESV reads “in Isaiah the prophet” and keeps the composite quotation."
+    },
+    forensic: {
+      sigla: [
+        "Codex Sinaiticus — Add MS 43725",
+        "Codex Vaticanus — Vat.gr.1209",
+        "Malachi 3:1 and Isaiah 40:3"
+      ],
+      critical: "The earliest Greek names Isaiah for a quotation that begins in Malachi. “In the prophets” is the later, smoother reading. The King James line follows that repair.",
+      body: "Matthew and Luke quote the Isaiah half in a different place and the Malachi half in another. Mark is the Gospel that puts both under Isaiah’s name."
+    }
+  },
+  355: {
+    verse: "Matthew 6:13",
+    department: "Scribal Revisions",
+    serialLabel: "Codex Sinaiticus",
+    keywords: "lord's prayer doxology matthew 6:13 sinaiticus vaticanus bezae didache",
+    summary: "The doxology “for thine is the kingdom” is absent from Sinaiticus, Vaticanus, and Bezae. Didache 8 has a shorter doxology, preserved in an 11th-century copy. The threefold form is the later liturgical expansion.",
+    manuscript: {
+      tradition: "Greek Matthew. 01, 03, and 05 end the prayer at “deliver us from the evil one.” The familiar threefold doxology is the later liturgical form. Didache 8 preserves a shorter doxology in Codex Hierosolymitanus, copied in 1056.",
+      witnesses: [
+        w("Early close of the prayer", "grc", "ltr", "ῥῦσαι ἡμᾶς ἀπὸ τοῦ πονηροῦ", "deliver us from the evil one"),
+        w("Later doxology", "grc", "ltr", "ὅτι σοῦ ἐστιν ἡ βασιλεία καὶ ἡ δύναμις καὶ ἡ δόξα", "for yours is the kingdom and the power and the glory")
+      ]
+    },
+    kjv: "And lead us not into temptation, but deliver us from evil: For thine is the kingdom, and the power, and the glory, for ever. Amen.",
+    modern: {
+      nasb: "NASB ends the prayer at “deliver us from evil” and footnotes the doxology.",
+      niv: "NIV ends at “the evil one” and footnotes the later doxology.",
+      esv: "ESV ends at “evil” and notes the doxology in later manuscripts."
+    },
+    forensic: {
+      sigla: [
+        "Codex Sinaiticus — Add MS 43725 (omits the doxology)",
+        "Codex Vaticanus — Vat.gr.1209; Codex Bezae",
+        "Didache 8 — shorter doxology, in an 11th-century copy"
+      ],
+      critical: "Sinaiticus, Vaticanus, and Bezae do not contain “for thine is the kingdom, and the power, and the glory.” The King James line is the later liturgical form.",
+      body: "A shorter doxology is already in the Didache as that text is preserved. The idea of a closing praise is early. The threefold sentence in Matthew is not in the fourth-century Bibles."
+    }
+  },
+  356: {
+    verse: "Exodus 12:40",
+    department: "Scribal Revisions",
+    serialLabel: "Samaritan Pentateuch",
+    keywords: "exodus 12:40 430 years canaan samaritan septuagint masoretic",
+    summary: "The Masoretic sentence is 430 years in Egypt. The Samaritan Pentateuch and a form of the Greek add Canaan. The two texts do not share the sentence.",
+    manuscript: {
+      tradition: "Masoretic Exodus against the Samaritan Pentateuch. A form of the Septuagint also adds the land of Canaan to the 430 years.",
+      witnesses: [
+        w("Masoretic clause", "he", "rtl", "אשר ישבו במצרים", "who dwelt in Egypt"),
+        w("Greek plus", "grc", "ltr", "καὶ ἐν γῇ Χανάαν", "and in the land of Canaan")
+      ]
+    },
+    kjv: "Now the sojourning of the children of Israel, who dwelt in Egypt, was four hundred and thirty years.",
+    modern: {
+      nasb: "NASB follows the Masoretic sentence: the sojourn counted here is in Egypt. A footnote may note the Samaritan and Greek plus.",
+      niv: "NIV keeps Egypt as the place of the 430 years and can footnote the longer ancient reading.",
+      esv: "ESV keeps the Masoretic place, Egypt, and can note the texts that add Canaan."
+    },
+    forensic: {
+      sigla: [
+        "Masoretic Exodus 12:40 — 430 years in Egypt",
+        "Samaritan Pentateuch — Egypt and Canaan",
+        "Septuagint form with the Canaan plus"
+      ],
+      critical: "The Masoretic text and the Samaritan Pentateuch do not share this sentence. The King James line follows the Masoretic place: Egypt alone.",
+      body: "Adding Canaan shortens the years spent in Egypt and lengthens the years spent in Canaan. This file records the split. It does not pick a chronology for Abraham."
+    }
+  },
+  357: {
+    verse: "Ezra 1:1–4",
+    department: "Archaeology",
+    serialLabel: "British Museum 90920",
+    keywords: "cyrus cylinder bm 90920 ezra decree jerusalem judah",
+    summary: "The Cyrus Cylinder, British Museum 90920, restores Mesopotamian cults. It does not name Judah, Jerusalem, or the Jews. It is not the decree in Ezra.",
+    manuscript: {
+      tradition: "Masoretic Ezra. The archaeological receipt is BM 90920, a Babylonian foundation cylinder from after the fall of Babylon in 539 BCE.",
+      witnesses: [w("Ezra 1:2, opening", "he", "rtl", "כה אמר כרש מלך פרס", "Thus says Cyrus king of Persia")]
+    },
+    kjv: "Now in the first year of Cyrus king of Persia, that the word of the LORD by the mouth of Jeremiah might be fulfilled, the LORD stirred up the spirit of Cyrus king of Persia, that he made a proclamation throughout all his kingdom, and put it also in writing, saying, Thus saith Cyrus king of Persia, The LORD God of heaven hath given me all the kingdoms of the earth; and he hath charged me to build him an house at Jerusalem, which is in Judah. Who is there among you of all his people? his God be with him, and let him go up to Jerusalem, which is in Judah, and build the house of the LORD God of Israel, (he is the God,) which is in Jerusalem. And whosoever remaineth in any place where he sojourneth, let the men of his place help him with silver, and with gold, and with goods, and with beasts, beside the freewill offering for the house of God that is in Jerusalem.",
+    modern: {
+      nasb: "NASB prints Cyrus’s proclamation to build the house in Jerusalem. It does not identify that proclamation with BM 90920.",
+      niv: "NIV likewise prints the Ezra decree. The cylinder is not in the translation footnote.",
+      esv: "ESV keeps the decree. The collision with the cylinder is in this forensic panel."
+    },
+    forensic: {
+      sigla: [
+        "British Museum 90920 — Cyrus Cylinder, registration 1880,0617.1941",
+        "Ezra 1:1–4",
+        "Isaiah 45:1 — Cyrus called anointed"
+      ],
+      critical: "BM 90920 does not name Judah, Jerusalem, or the Jews. It is not the decree printed in Ezra.",
+      body: "The cylinder says Cyrus restored Mesopotamian sanctuaries and returned gods taken to Babylon. That policy can sit beside a Judean return. The clay itself does not say it."
+    }
+  },
+  358: {
+    verse: "2 Kings 18:13–16",
+    department: "Archaeology",
+    serialLabel: "British Museum 91032",
+    keywords: "sennacherib taylor prism bm 91032 hezekiah bird cage tribute",
+    summary: "The Taylor Prism, British Museum 91032, confines Hezekiah in Jerusalem like a bird in a cage and records tribute. Sennacherib does not claim to have taken the city.",
+    manuscript: {
+      tradition: "Masoretic Kings. The receipt is the Taylor Prism, Nineveh, 691 BCE, Sennacherib’s campaigns through the third campaign of 701 BCE.",
+      witnesses: [w("Prism simile", "akk", "ltr", "kīma iṣṣūr quppi", "like a bird in a cage")]
+    },
+    kjv: "Now in the fourteenth year of king Hezekiah did Sennacherib king of Assyria come up against all the fenced cities of Judah, and took them. And Hezekiah king of Judah sent to the king of Assyria to Lachish, saying, I have offended; return from me: that which thou puttest on me will I bear. And the king of Assyria appointed unto Hezekiah king of Judah three hundred talents of silver and thirty talents of gold. And Hezekiah gave him all the silver that was found in the house of the LORD, and in the treasures of the king's house. At that time did Hezekiah cut off the gold from the doors of the temple of the LORD, and from the pillars which Hezekiah king of Judah had overlaid, and gave it to the king of Assyria.",
+    modern: {
+      nasb: "NASB narrates the tribute in 18:13–16 and the departure in 19:35–36. It does not footnote BM 91032.",
+      niv: "NIV keeps both the tribute and the angel of the LORD in the camp. The prism is not the translation.",
+      esv: "ESV keeps the same two reports. The track is the English narrative."
+    },
+    forensic: {
+      sigla: [
+        "British Museum 91032 — Taylor Prism, registration 1855,1003.1",
+        "2 Kings 18:13–16 — tribute",
+        "2 Kings 19:35–36 — the camp and the departure, which the prism does not record"
+      ],
+      critical: "BM 91032 does not say Sennacherib captured Jerusalem. It says he shut Hezekiah in the city and took tribute.",
+      body: "Kings adds a disaster in the Assyrian camp and a departure. The prism ends the campaign with the cage and the payment. The two reports share the siege and the tribute. They do not share the capture of the city, because the prism never claims it."
+    }
+  },
+  359: {
+    verse: "Daniel 5:30–31",
+    department: "Archaeology",
+    serialLabel: "British Museum 35382",
+    keywords: "nabonidus chronicle bm 35382 belshazzar darius the mede cyrus ugbaru",
+    summary: "The Nabonidus Chronicle, British Museum 35382, shows Belshazzar as crown prince while Nabonidus is away. Babylon falls to Ugbaru and Cyrus. The tablet does not name Darius the Mede. The claim that Belshazzar is unattested is false.",
+    manuscript: {
+      tradition: "Aramaic Daniel. The receipt is BM 35382, the Nabonidus Chronicle, for the fall of Babylon in 539 BCE.",
+      witnesses: [w("Daniel 5:31, the name the chronicle lacks", "arc", "rtl", "דריוש מדיא", "Darius the Mede")]
+    },
+    kjv: "In that night was Belshazzar the king of the Chaldeans slain. And Darius the Median took the kingdom, being about threescore and two years old.",
+    modern: {
+      nasb: "NASB prints Belshazzar slain and Darius the Mede receiving the kingdom. It does not identify Darius with a line on BM 35382.",
+      niv: "NIV keeps Darius the Mede. The chronicle is not in the footnote.",
+      esv: "ESV keeps the same succession. The track is the English of Daniel, not the tablet."
+    },
+    forensic: {
+      sigla: [
+        "British Museum 35382 — Nabonidus Chronicle",
+        "Daniel 5:30–31",
+        "Names on the tablet: Nabonidus, the crown prince, Ugbaru, Cyrus"
+      ],
+      critical: "BM 35382 attests Belshazzar as crown prince. It does not name Darius the Mede, and it gives the city to Cyrus.",
+      body: "An older claim said Belshazzar never existed. The chronicle ends that claim. It does not make Darius the Mede a Babylonian king. Ugbaru is the governor the tablet names at the fall. Equating him with Darius is a hypothesis, not a line on the clay."
+    }
+  },
+  360: {
+    verse: "Acts 5:36",
+    department: "Roman Politics",
+    serialLabel: "Josephus, Antiquities 20.97",
+    keywords: "theudas fadus gamaliel josephus acts 5:36 judas galilee",
+    summary: "The only Theudas Josephus records rises under Cuspius Fadus, about 45 CE, after Judas of the census. Acts puts Theudas before Judas, in a speech set in the 30s.",
+    manuscript: {
+      tradition: "Greek Acts. The historical receipt is Josephus, Jewish Antiquities 20.97, Theudas under Cuspius Fadus.",
+      witnesses: [w("Acts 5:36", "grc", "ltr", "ἀνέστη Θευδᾶς", "Theudas rose up")]
+    },
+    kjv: "For before these days rose up Theudas, boasting himself to be somebody; to whom a number of men, about four hundred, joined themselves: who was slain; and all, as many as obeyed him, were scattered, and brought to nought.",
+    modern: {
+      nasb: "NASB prints Theudas, then Judas of the census. It does not date Theudas to Fadus.",
+      niv: "NIV keeps the same order: Theudas, then Judas. The Josephus date is not the translation.",
+      esv: "ESV keeps Theudas before Judas. Same track."
+    },
+    forensic: {
+      sigla: [
+        "Josephus, Jewish Antiquities 20.97 — Theudas under Cuspius Fadus, about 45 CE",
+        "Josephus, Antiquities 18.1 — Judas at the census of 6 CE",
+        "NA28 Acts 5:36–37"
+      ],
+      critical: "Josephus’s Theudas is after the scene in which Gamaliel is speaking, and after Judas. Acts puts Theudas first.",
+      body: "An earlier Theudas, otherwise unrecorded, would close the gap. Josephus does not record one. This file locks the order of the two texts. It does not invent a second prophet to save the speech."
+    }
+  },
+  361: {
+    verse: "Joshua 7–8",
+    department: "Archaeology",
+    serialLabel: "et-Tell",
+    keywords: "ai et-tell callaway marquet-krause late bronze iron age",
+    summary: "At et-Tell, the Marquet-Krause and Callaway reports give an Early Bronze destruction, no Late Bronze fortified city, and a small Iron Age village. The published phase is the lock.",
+    manuscript: {
+      tradition: "Masoretic Joshua. The receipt is the mound et-Tell and the published excavations of Judith Marquet-Krause and Joseph Callaway, not a souvenir stratum number.",
+      witnesses: [w("Joshua 8:28", "he", "rtl", "וישרף יהושע את־העי", "And Joshua burned Ai")]
+    },
+    kjv: "And Joshua burnt Ai, and made it an heap for ever, even a desolation unto this day. The King James campaign is Joshua 7 and 8: the ambush, the burning, and the heap.",
+    modern: {
+      nasb: "NASB narrates the burning of Ai. It does not footnote et-Tell or a Late Bronze phase.",
+      niv: "NIV likewise narrates the capture and the fire. The dig is not in the translation note.",
+      esv: "ESV keeps the narrative. The collision with the published phase is in this forensic panel."
+    },
+    forensic: {
+      sigla: [
+        "et-Tell — Judith Marquet-Krause, 1930s",
+        "Joseph A. Callaway, Joint Archaeological Expedition, 1964–1972",
+        "Joshua 8:28"
+      ],
+      critical: "Those published reports do not describe a Late Bronze fortified city at et-Tell. They describe an Early Bronze destruction and a later, small Iron Age village.",
+      body: "If this mound is Ai, Joshua 7–8 has no city of the conquest date in those reports. Later dissent is not the report of Marquet-Krause or Callaway. The file locks the published phase, as the Jericho file locks City IV."
+    }
+  },
+  362: {
+    verse: "Acts 15:34",
+    department: "Scribal Revisions",
+    serialLabel: "Codex Sinaiticus",
+    keywords: "silas abide acts 15:34 sinaiticus vaticanus metzger",
+    summary: "“It pleased Silas to abide there still” is absent from Codex Sinaiticus and Codex Vaticanus. The King James line is a later Greek plus. It is not a medieval invention.",
+    manuscript: {
+      tradition: "Greek Acts. The lock is the absence of the Silas sentence from Sinaiticus (01) and Vaticanus (03). Metzger rates the omission {A}.",
+      witnesses: [w("The later plus", "grc", "ltr", "ἔδοξεν δὲ τῷ Σίλᾳ ἐπιμεῖναι αὐτοῦ", "It pleased Silas to remain there")]
+    },
+    kjv: "Notwithstanding it pleased Silas to abide there still.",
+    modern: {
+      nasb: "NASB printings that follow the earlier Greek omit the verse, or mark it as absent from the earliest copies. The track is the omission, not a stored modern line.",
+      niv: "NIV omits the sentence from the main text. A footnote, when present, records the later Greek.",
+      esv: "ESV omits it. The King James is the text that still prints it."
+    },
+    forensic: {
+      sigla: [
+        "Codex Sinaiticus — omits Acts 15:34",
+        "Codex Vaticanus — omits Acts 15:34",
+        "Textus Receptus / KJV — includes the Silas sentence"
+      ],
+      critical: "Sinaiticus and Vaticanus do not contain the sentence. The King James does. Some later copies also omit it. The lock is the earliest Greek, not a claim that every Byzantine copy includes it.",
+      body: "The verse fills a gap after Silas is sent back. The earliest surviving Bibles do not have the filler. Calling it medieval would be false. Calling it original would ignore 01 and 03."
+    }
+  },
+  363: {
+    verse: "Acts 28:29",
+    department: "Scribal Revisions",
+    serialLabel: "Codex Sinaiticus",
+    keywords: "acts 28:29 jews departed reasoning sinaiticus p74 vaticanus",
+    summary: "The departure and the great reasoning of the Jews is absent from P74, Sinaiticus, Alexandrinus, and Vaticanus. Western and Byzantine copies, and the King James, add it between 28:28 and 28:30.",
+    manuscript: {
+      tradition: "Greek Acts. Metzger rates the omission {A}. The plus closes the gap before Paul’s two years in his own hired house.",
+      witnesses: [w("The later plus", "grc", "ltr", "καὶ ταῦτα αὐτοῦ εἰπόντος ἀπῆλθον οἱ Ἰουδαῖοι, πολλὴν ἔχοντες ἐν ἑαυτοῖς συζήτησιν", "And when he had said these things, the Jews departed, having much debate among themselves")]
+    },
+    kjv: "And when he had said these words, the Jews departed, and had great reasoning among themselves.",
+    modern: {
+      nasb: "Some NASB printings still keep the verse. Do not claim that every modern edition omits it. The track is whether the printing follows 01 or the later Greek.",
+      niv: "NIV omits the sentence from the main text.",
+      esv: "ESV omits it. The King James prints it."
+    },
+    forensic: {
+      sigla: [
+        "P74, Codex Sinaiticus, Codex Alexandrinus, Codex Vaticanus — omit Acts 28:29",
+        "Western and Byzantine copies, and the Textus Receptus — include it",
+        "The gap is between Acts 28:28 and Acts 28:30"
+      ],
+      critical: "The earliest copies jump from the Gentile hearing to the two years. The reasoning sentence is the later bridge.",
+      body: "This is the same class as the Silas verse: a short narrative plus, already in the tradition the King James translated, absent from the fourth-century Bibles and from P74. It is not medieval."
+    }
+  },
+  364: {
+    verse: "Romans 16:24",
+    department: "Scribal Revisions",
+    serialLabel: "Codex Sinaiticus",
+    keywords: "romans 16:24 grace amen sinaiticus vaticanus ephraemi byzantine",
+    summary: "The second grace, “The grace of our Lord Jesus Christ be with you all. Amen,” is absent from Sinaiticus, Alexandrinus, Vaticanus, and Ephraemi. It repeats the grace already written at 16:20. Bezae, Claromontanus, and the Byzantine text include it.",
+    manuscript: {
+      tradition: "Greek Romans. The earliest complete copies omit verse 24. The doxology of 16:25–27 also moves among copies. This file locks only verse 24.",
+      witnesses: [w("The repeated grace", "grc", "ltr", "Ἡ χάρις τοῦ κυρίου ἡμῶν Ἰησοῦ Χριστοῦ μετὰ πάντων ὑμῶν. ἀμήν.", "The grace of our Lord Jesus Christ be with you all. Amen.")]
+    },
+    kjv: "The grace of our Lord Jesus Christ be with you all. Amen.",
+    modern: {
+      nasb: "NASB editions that follow the earlier Greek omit 16:24, or bracket it. The track is the omission beside the grace at 16:20.",
+      niv: "NIV omits the repeated grace from the main text.",
+      esv: "ESV omits it. The King James prints both graces."
+    },
+    forensic: {
+      sigla: [
+        "Codex Sinaiticus, Codex Alexandrinus, Codex Vaticanus, Codex Ephraemi — omit Romans 16:24",
+        "Codex Bezae (D), Codex Claromontanus (G), and the Byzantine text — include it",
+        "Romans 16:20 — the grace this verse repeats"
+      ],
+      critical: "The earliest copies have one grace, at 16:20. The King James has a second, at 16:24.",
+      body: "The sentence is not new theology. It is the same blessing copied again. Sinaiticus does not have the second copy."
+    }
+  },
+  365: {
+    verse: "Colossians 1:14",
+    department: "Scribal Revisions",
+    serialLabel: "Codex Sinaiticus",
+    keywords: "colossians 1:14 through his blood ephesians sinaiticus vaticanus",
+    summary: "“Through his blood” is absent from Sinaiticus, Alexandrinus, Vaticanus, Ephraemi, and the great majority of manuscripts. The King James includes it. The phrase is the wording of Ephesians 1:7, written into Colossians later.",
+    manuscript: {
+      tradition: "Greek Colossians. The early text has the redemption and the forgiveness. It does not have διὰ τοῦ αἵματος αὐτοῦ.",
+      witnesses: [
+        w("Early text", "grc", "ltr", "ἐν ᾧ ἔχομεν τὴν ἀπολύτρωσιν, τὴν ἄφεσιν τῶν ἁμαρτιῶν", "in whom we have the redemption, the forgiveness of sins"),
+        w("The later plus", "grc", "ltr", "διὰ τοῦ αἵματος αὐτοῦ", "through his blood")
+      ]
+    },
+    kjv: "In whom we have redemption through his blood, even the forgiveness of sins:",
+    modern: {
+      nasb: "NASB prints the redemption and the forgiveness. A footnote, when present, records “through his blood” as a later addition aligned with Ephesians 1:7.",
+      niv: "NIV main text does not carry the blood phrase in Colossians. Ephesians 1:7 is where the phrase belongs in the early text.",
+      esv: "ESV likewise prints Colossians without the phrase. The King James is the track that includes it."
+    },
+    forensic: {
+      sigla: [
+        "Codex Sinaiticus, Codex Alexandrinus, Codex Vaticanus, Codex Ephraemi — omit διὰ τοῦ αἵματος αὐτοῦ",
+        "A few later minuscules and the King James — include it",
+        "Ephesians 1:7 — the verse the phrase is borrowed from"
+      ],
+      critical: "The earliest copies of Colossians do not say “through his blood” at 1:14. The King James does. The words are already in Ephesians.",
+      body: "This is a harmonizing plus, not a missing doctrine. The blood is in the early text of Ephesians. It is not in the early text of this Colossians line."
+    }
+  },
+  366: {
+    verse: "Matthew 27:49",
+    department: "Scribal Revisions",
+    serialLabel: "Codex Sinaiticus",
+    keywords: "matthew 27:49 spear water blood sinaiticus vaticanus john 19:34",
+    summary: "Sinaiticus and Vaticanus include a spear thrust, with water and blood, before Jesus dies. The King James Matthew does not. John 19:34 places the spear after death. The lock is what the earliest copies of Matthew contain.",
+    manuscript: {
+      tradition: "Greek Matthew. NA28 does not print the spear in the main text. Sinaiticus and Vaticanus do contain it, before the death.",
+      witnesses: [w("The spear in 01 and 03", "grc", "ltr", "ἄλλος δὲ λαβὼν λόγχην ἔνυξεν αὐτοῦ τὴν πλευράν, καὶ ἐξῆλθεν ὕδωρ καὶ αἷμα", "But another took a spear and pierced his side, and out came water and blood")]
+    },
+    kjv: "The rest said, Let be, let us see whether Elias will come to save him.",
+    modern: {
+      nasb: "NASB follows the shorter Matthew line and does not print the spear at 27:49. John 19:34 remains the spear after death.",
+      niv: "NIV likewise omits the spear from Matthew. The earliest Greek of Matthew is longer than the NIV at this verse.",
+      esv: "ESV omits it from Matthew. The track is the shorter English, against 01 and 03."
+    },
+    forensic: {
+      sigla: [
+        "Codex Sinaiticus and Codex Vaticanus — include the spear before the death",
+        "King James Matthew 27:49 — no spear",
+        "John 19:34 — the spear after the death",
+        "NA28 — does not print the Matthean spear in the main text"
+      ],
+      critical: "The two fourth-century Bibles of Matthew contain a sentence the King James does not. This file does not rule that the King James is wrong for omitting it. It locks what 01 and 03 contain.",
+      body: "The usual nuclear pattern is a later plus in the King James. Here the earliest copies are the ones with the extra sentence, and it disagrees with John about when the spear falls. NA28 sides with the shorter text. The object still says what it says."
+    }
+  },
+  367: {
+    verse: "Daniel 1:1",
+    department: "Archaeology",
+    serialLabel: "British Museum 21946",
+    keywords: "bm 21946 jerusalem chronicle jehoiakim nebuchadnezzar carchemish 597",
+    summary: "British Museum 21946, the Babylonian Chronicle for Nebuchadnezzar’s early years, records Carchemish while he is still crown prince, and in his seventh year the capture of the city of Judah and its king. It does not record a siege of Jerusalem in Jehoiakim’s third year.",
+    manuscript: {
+      tradition: "Aramaic Daniel. The receipt is BM 21946, Chronicle 5, ABC 5, registration 1896,0409.51, published by D. J. Wiseman in 1956 and edited by A. K. Grayson.",
+      witnesses: [w("Daniel 1:1, the year the chronicle does not record", "arc", "rtl", "בשנת שלוש למלכות יהויקים", "in the third year of the reign of Jehoiakim")]
+    },
+    kjv: "In the third year of the reign of Jehoiakim king of Judah came Nebuchadnezzar king of Babylon unto Jerusalem, and besieged it.",
+    modern: {
+      nasb: "NASB prints the third year of Jehoiakim. It does not footnote BM 21946.",
+      niv: "NIV keeps the third-year siege. The chronicle is not the translation.",
+      esv: "ESV keeps the same date. The collision is in this panel."
+    },
+    forensic: {
+      sigla: [
+        "British Museum 21946 — Babylonian Chronicle 5, registration 1896,0409.51",
+        "Nebuchadnezzar’s seventh year — the city of Judah taken, 2 Adar, 15/16 March 597 BCE",
+        "Jeremiah 46:2 — Carchemish in Jehoiakim’s fourth year",
+        "2 Kings 24 — the capture of Jehoiachin, which the seventh-year line matches"
+      ],
+      critical: "The tablet records the 597 capture. It does not contain Daniel’s siege in Jehoiakim’s third year.",
+      body: "An accession-year count can be offered so that Daniel’s third year and Jeremiah’s fourth year name one campaign. That count is a hypothesis, as an earlier Theudas would be a hypothesis. The clay does not contain it. Carchemish on this tablet falls while Nebuchadnezzar is still crown prince, in Nabopolassar’s twenty-first year."
     }
   }
 };
@@ -678,6 +1138,111 @@ const BOUND = {
       critical: "Some copies place the silence command after 14:40. The paragraph traveled. Travel is evidence of a seam, not yet a verdict of forgery.",
       body: "A file that calls the verses a proven interpolation without the sigla is ahead of its receipt. A file that hides the displacement is behind it."
     }
+  },
+  368: {
+    verse: "2 Kings 9:27",
+    department: "Archaeology",
+    serialLabel: "IAA 1996-125",
+    keywords: "tel dan stele house of david bytdwd hazael ahaziah jehu",
+    summary: "The Tel Dan stele, Israel Antiquities Authority 1996-125 and 1993-3162, on loan display at the Israel Museum, says “house of David.” It does not prove a tenth-century united monarchy, and its boast does not match the deaths in 2 Kings 9.",
+    manuscript: {
+      tradition: "Masoretic Kings. The receipt is the Aramaic basalt from Tel Dan, ninth century BCE, generally assigned to Hazael of Aram though his name is not on the stone.",
+      witnesses: [w("The phrase on the stone", "arc", "rtl", "ביתדוד", "house of David, written without a word divider")]
+    },
+    kjv: "But when Ahaziah the king of Judah saw this, he fled by the way of the garden house. And Jehu followed after him, and said, Smite him also in the chariot. And they did so at the going up to Gur, which is by Ibleam. And he fled to Megiddo, and died there.",
+    modern: {
+      nasb: "NASB narrates Jehu’s pursuit and Ahaziah’s death at Megiddo. It does not footnote the Tel Dan stele.",
+      niv: "NIV keeps Jehu as the killer. The stone is not the translation.",
+      esv: "ESV keeps the same scene. The receipt is the basalt, not the English."
+    },
+    forensic: {
+      sigla: [
+        "IAA 1996-125 and IAA 1993-3162 — Tel Dan stele, Israel Museum loan",
+        "Aramaic byt dwd / ביתדוד",
+        "2 Kings 9:24 and 9:27 — Jehu’s men kill the king of Israel and Ahaziah"
+      ],
+      critical: "The stone says house of David. It does not prove a tenth-century united monarchy. Its claim to have killed the king of Israel and Ahaziah of the house of David is not the sequence in 2 Kings 9, where Jehu kills them.",
+      body: "A real object is filed. What it settles is the name. What it does not settle is the tenth century, or which king struck the blow."
+    }
+  },
+  369: {
+    verse: "Exodus 1:1",
+    department: "Archaeology",
+    serialLabel: "Cairo JE 31408",
+    keywords: "merneptah stele israel stele cairo je 31408 petrie thebes",
+    summary: "The Merneptah Stele, Cairo JE 31408, names Israel as a people in Canaan in Merneptah’s fifth year. It does not narrate an exodus or a conquest, and it does not name Moses. It is not a manuscript of Exodus.",
+    manuscript: {
+      tradition: "The receipt is the granite stele from Thebes, found by Flinders Petrie in 1896, Egyptian Museum, Cairo. Year 5 of Merneptah is about 1208 BCE.",
+      witnesses: [w("Line 27, published sense", "en", "ltr", "Israel is laid waste, its seed is not", "Israel is written with the people determinative, in a list with Ashkelon, Gezer, and Yanoam")]
+    },
+    kjv: "Now these are the names of the children of Israel, which came into Egypt; every man and his household came with Jacob.",
+    modern: {
+      nasb: "NASB prints the names of the sons of Israel who came to Egypt. It does not footnote JE 31408.",
+      niv: "NIV keeps the same opening of Exodus. The stele is not a translation note.",
+      esv: "ESV keeps the list of names. The stone is a separate object."
+    },
+    forensic: {
+      sigla: [
+        "Cairo JE 31408 — Merneptah Stele, also called the Israel Stele",
+        "Thebes, Petrie 1896, year 5 of Merneptah",
+        "Line 27 — Israel as a people, not a city"
+      ],
+      critical: "The stele names a people called Israel and says that people is laid waste. It does not tell the story of Exodus 1, and it does not name Moses.",
+      body: "The name is the receipt. An exodus, a conquest, and a lawgiver are not lines on this stone."
+    }
+  },
+  370: {
+    verse: "2 Kings 10:36",
+    department: "Archaeology",
+    serialLabel: "British Museum 118885",
+    keywords: "black obelisk shalmaneser jehu omri bit-humri bm 118885",
+    summary: "The Black Obelisk of Shalmaneser III, British Museum 118885, captions tribute from Yaua, son of Omri. “Son of Omri” is the Assyrian country name Bit-Humri. Kings says Jehu was son of Jehoshaphat, son of Nimshi, and that he destroyed the house of Ahab. The obelisk shows tribute. It does not narrate the coup.",
+    manuscript: {
+      tradition: "Masoretic Kings. The receipt is the Black Obelisk from Nimrud, reign of Shalmaneser III.",
+      witnesses: [w("The caption", "akk", "ltr", "Ia-ú-a mār Humrî", "Yaua, son of Omri")]
+    },
+    kjv: "And the time that Jehu reigned over Israel in Samaria was twenty and eight years.",
+    modern: {
+      nasb: "NASB gives Jehu twenty-eight years. It does not identify him from BM 118885 in the text.",
+      niv: "NIV keeps the twenty-eight years. The obelisk is not the footnote.",
+      esv: "ESV keeps the regnal total. The tribute scene is this dossier."
+    },
+    forensic: {
+      sigla: [
+        "British Museum 118885 — Black Obelisk of Shalmaneser III",
+        "Caption: tribute of Ia-ú-a, mār Humrî",
+        "2 Kings 9:2 — Jehu son of Jehoshaphat son of Nimshi",
+        "2 Kings 10:36 — twenty-eight years"
+      ],
+      critical: "The obelisk shows a king of Bit-Humri paying tribute. It does not say he killed the house of Ahab, and “son of Omri” is not his father’s name.",
+      body: "Jehu’s reign has an Assyrian picture. The picture is not 2 Kings 9. The coup remains the biblical narrative."
+    }
+  },
+  371: {
+    verse: "2 Kings 20:20",
+    department: "Archaeology",
+    serialLabel: "Istanbul Archaeology Museums",
+    keywords: "siloam tunnel inscription hezekiah conduit istanbul",
+    summary: "The Siloam Tunnel inscription, held by the Istanbul Archaeology Museums, records the tunnelers’ breakthrough. It does not name Hezekiah and it does not give a date. Kings 20:20 is what attaches the tunnel to Hezekiah.",
+    manuscript: {
+      tradition: "Masoretic Kings. The receipt is the Hebrew inscription cut in the Siloam tunnel. No inventory number is printed in this file.",
+      witnesses: [w("The inscription", "he", "rtl", "הנקבה", "the tunnel")]
+    },
+    kjv: "And the rest of the acts of Hezekiah, and all his might, and how he made a pool, and a conduit, and brought water into the city, are they not written in the book of the chronicles of the kings of Judah?",
+    modern: {
+      nasb: "NASB records the pool and the conduit among the acts of Hezekiah. It does not quote the tunnel inscription.",
+      niv: "NIV keeps the pool, the tunnel, and the water brought into the city. The stone is not the translation.",
+      esv: "ESV keeps the same notice. The name Hezekiah is in Kings, not required by the inscription."
+    },
+    forensic: {
+      sigla: [
+        "Siloam Tunnel inscription — Istanbul Archaeology Museums",
+        "No inventory number is assigned in this file",
+        "2 Kings 20:20 — the pool, the conduit, and the water"
+      ],
+      critical: "The inscription records the breakthrough of the tunnel. It does not name Hezekiah. The verse is what joins the king to the work.",
+      body: "The object is real. The attribution is biblical. This dossier keeps those two sentences apart."
+    }
   }
 };
 
@@ -886,7 +1451,7 @@ function assertBound(file, n) {
 function buildArchive() {
   const pool = expandPool();
   const reserved = new Set([...Object.keys(NUCLEAR), ...Object.keys(BOUND)].map(Number));
-  if (reserved.size !== 24) throw new Error(`Bound set is ${reserved.size}, expected 24`);
+  if (reserved.size !== 45) throw new Error(`Receipt set is ${reserved.size}, expected 45`);
   const files = [];
   let scaffoldIndex = 0;
   for (let n = 1; n <= ARCHIVE_MILESTONE; n += 1) {
@@ -913,8 +1478,8 @@ function buildArchive() {
   }
   if (files.length !== ARCHIVE_MILESTONE) throw new Error(`Length ${files.length}`);
   const boundCount = files.filter((file) => file.status === "forensic" || file.status === "bound").length;
-  if (boundCount !== 24) throw new Error(`Bound count ${boundCount}`);
-  if (files.filter((file) => file.tier === "nuclear").length !== 8) throw new Error("Nuclear count");
+  if (boundCount !== 45) throw new Error(`Bound count ${boundCount}`);
+  if (files.filter((file) => file.tier === "nuclear").length !== 25) throw new Error("Nuclear count");
   return files;
 }
 
@@ -1074,7 +1639,18 @@ const WITNESS_PAGES = {
   "AUDIT-052": "https://digi.vatlib.it/view/MSS_Vat.gr.1209",
   "AUDIT-062": "https://collections.louvre.fr/en/ark:/53355/cl010120339",
   "AUDIT-098": "https://www.deadseascrolls.org.il/explore-the-archive/manuscript/4Q37-1",
-  "AUDIT-130": "https://codexsinaiticus.org/en/manuscript.aspx"
+  "AUDIT-130": "https://codexsinaiticus.org/en/manuscript.aspx",
+  "AUDIT-352": "https://codexsinaiticus.org/en/manuscript.aspx",
+  "AUDIT-353": "https://codexsinaiticus.org/en/manuscript.aspx",
+  "AUDIT-354": "https://codexsinaiticus.org/en/manuscript.aspx",
+  "AUDIT-355": "https://codexsinaiticus.org/en/manuscript.aspx",
+  "AUDIT-362": "https://codexsinaiticus.org/en/manuscript.aspx",
+  "AUDIT-363": "https://codexsinaiticus.org/en/manuscript.aspx",
+  "AUDIT-364": "https://codexsinaiticus.org/en/manuscript.aspx",
+  "AUDIT-365": "https://codexsinaiticus.org/en/manuscript.aspx",
+  "AUDIT-366": "https://codexsinaiticus.org/en/manuscript.aspx",
+  "AUDIT-357": "https://www.britishmuseum.org/collection/object/W_1880-0617-1941",
+  "AUDIT-358": "https://www.britishmuseum.org/collection/object/W_1855-1003-1"
 };
 
 function gradeOf(file) {
@@ -1453,8 +2029,38 @@ if (typeof document === "undefined") {
   const parallels = built.filter((file) => file.n >= 333 && file.n <= 350);
   const banned = built.some((file) => file.blob.includes("word-for-word plagiarized text") || file.blob.includes("late medieval insertion is"));
   console.log(JSON.stringify({
-    ok: built.length === 350
+    ok: built.length === 371
       && nuclear.every((file) => file && file.tier === "nuclear" && file.status === "forensic")
+      && built.filter((file) => file.tier === "nuclear").length === 25
+      && built.filter(isBoundStatus).length === 45
+      && built.filter((file) => file.status === "scaffold").length === 326
+      && [351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367].every((n) => {
+        const file = built.find((item) => item.n === n);
+        return file && file.tier === "nuclear" && file.status === "forensic";
+      })
+      && [368, 369, 370, 371].every((n) => {
+        const file = built.find((item) => item.n === n);
+        return file && file.status === "bound" && file.tier !== "nuclear";
+      })
+      && built.find((file) => file.id === "AUDIT-362").blob.includes("silas")
+      && built.find((file) => file.id === "AUDIT-366").blob.includes("spear")
+      && built.find((file) => file.id === "AUDIT-367").blob.includes("21946")
+      && built.find((file) => file.id === "AUDIT-367").blob.includes("hypothesis")
+      && built.find((file) => file.id === "AUDIT-368").status === "bound"
+      && built.find((file) => file.id === "AUDIT-368").blob.includes("house of david")
+      && built.find((file) => file.id === "AUDIT-370").blob.includes("118885")
+      && built.find((file) => file.id === "AUDIT-371").blob.includes("does not name hezekiah")
+      && built.find((file) => file.id === "AUDIT-352").blob.includes("3.12.8")
+      && built.find((file) => file.id === "AUDIT-352").blob.includes("not a medieval insertion")
+      && built.find((file) => file.id === "AUDIT-353").blob.includes("no page of 1 timothy")
+      && built.find((file) => file.id === "AUDIT-353").blob.includes("who")
+      && built.find((file) => file.id === "AUDIT-357").blob.includes("90920")
+      && built.find((file) => file.id === "AUDIT-357").blob.includes("does not name judah")
+      && built.find((file) => file.id === "AUDIT-358").blob.includes("91032")
+      && built.find((file) => file.id === "AUDIT-359").blob.includes("35382")
+      && built.find((file) => file.id === "AUDIT-359").blob.includes("darius the mede")
+      && built.find((file) => file.id === "AUDIT-360").blob.includes("20.97")
+      && built.find((file) => file.id === "AUDIT-361").blob.includes("late bronze")
       && mark.serialLabel === "Add MS 43725 (Codex Sinaiticus)"
       && mark.blob.includes("late 2nd century ce")
       && mark.blob.includes("against heresies")
